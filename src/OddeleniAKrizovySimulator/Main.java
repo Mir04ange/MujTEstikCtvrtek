@@ -14,7 +14,7 @@ public class Main {
             this.jmeno = jmeno;
             this.pritomen = pritomen;
         }
- // tu Main
+        // tu Main
         public static void main(String[] args) {
             EvidencePostav evidence = new EvidencePostav();
             evidence.pridejPostavu(new Ucitel("Jitka", true , false)); // strily po zacich = true;
@@ -172,12 +172,9 @@ public class Main {
     static class EvidencePostav {
 
 
-        private ArrayList<SkolniPostava> postavy =
-                new ArrayList<SkolniPostava>();
+        private ArrayList<SkolniPostava> postavy = new ArrayList<SkolniPostava>();
 
-        public void pridejPostavu(SkolniPostava postava) {
-            postavy.add(postava);
-        }
+        public void pridejPostavu(SkolniPostava postava) {postavy.add(postava);}
 
         public void vypisPostavy() {
             System.out.println("(:- VSECHNY POSTAVY -:)");
@@ -213,6 +210,14 @@ public class Main {
         }
     }
 }
+
+
+
+
+
+
+
+
 
 
 
