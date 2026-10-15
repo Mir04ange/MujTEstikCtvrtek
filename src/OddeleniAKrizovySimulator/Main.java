@@ -6,57 +6,72 @@ public class Main {
     interface IVymlouvac {
         String vymysliVymluvu();
     }
-
+    // tady abstract
     static abstract class SkolniPostava {
         protected String jmeno;
         protected boolean pritomen;
-
         public SkolniPostava(String jmeno, boolean pritomen) {
             this.jmeno = jmeno;
             this.pritomen = pritomen;
         }
-
+ // tu Main
         public static void main(String[] args) {
-
             EvidencePostav evidence = new EvidencePostav();
+            evidence.pridejPostavu(new Ucitel("Jitka", true , false)); // strily po zacich = true;
 
-            evidence.pridejPostavu(
-                    new Student("Adam", true, 3));
+            evidence.pridejPostavu(new Student("Adam", true, 3));
 
-            evidence.pridejPostavu(
-                    new Student("Vojta", false, 1));
 
-            evidence.pridejPostavu(
-                    new Ucitel("Pan Promitac", true, true));
+            evidence.pridejPostavu(new Student("Vojta", false, 1));
 
-            evidence.pridejPostavu(
-                    new Ucitel("Pan Papir", false, false));
 
-            evidence.pridejPostavu(
-                    new Skolnik("Mistr Klic", true));
+//            evidence.pridejPostavu(new Ucitel("Pan Promitac", true, true));
 
-            evidence.pridejPostavu(
-                    new Skolnik("Pan Zasuvka", true));
+
+            evidence.pridejPostavu(new Ucitel("Pan Papir", false, false));
+            evidence.pridejPostavu(new Skolnik("Mistr Klic", true));
+
+
+            evidence.pridejPostavu(new Skolnik("Pan Zasuvka", true));
+
+
             evidence.vypisPostavy();
+
+            // V Y M L U V A
             System.out.println("Vymluva");
-            System.out.println("..........................................................................................................................................");
+
+
+
             IVymlouvac student = new Student("Adam", true, 3);
+
             IVymlouvac ucitel = new Ucitel("Ucitel", true, true);
-            System.out.println(student.vymysliVymluvu());
-            System.out.println(ucitel.vymysliVymluvu());
-            int pocetPokusu = 3;
+
+
+            System.out.println(student.vymysliVymluvu());            System.out.println("..........................................................................................................................................");
+
+            System.out.println(ucitel.vymysliVymluvu());            System.out.println("..........................................................................................................................................");
+
+
+            int pocetPokusu = 3; // klidne zmenit i na 120
+
             evidence.vypisZtraceneMinuty(pocetPokusu);
+
+
             int soucet = evidence.spocitejZdrzeniPritomnych(pocetPokusu);
+
+
             System.out.println("Pritomny(celk..)" + pocetPokusu + " POKUSY ");
+
             System.out.println("..........................................................................................................................................");
+
             System.out.println(soucet + " min");
+
             if (soucet > 20) {
                 System.out.println("Na pisemku nebyl cas musim se ucit na javu ");
                 System.out.println("..........................................................................................................................................");
             } else {
                 System.out.println("Nestihla se jupi skoda ze jsem se tak pracne ucil");
-            }
-        }
+            }}
 
         public String getJmeno() {
             return jmeno;
@@ -105,6 +120,7 @@ public class Main {
         public String vymysliVymluvu() {
             return "Co je to ukol(Ale 1 u Javy prosím :)).";
         }
+
     }
     static class Ucitel extends SkolniPostava
             implements IVymlouvac {
